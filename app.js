@@ -25,7 +25,8 @@
   const ACTIONS = {left:'向左移动',right:'向右移动',rotate:'顺时针旋转',ccw:'逆时针旋转',half:'旋转 180°',soft:'软降',hard:'硬降 / 直接落下',hold:'暂存 / 交换',undo:'撤销上一次落子',coach:'AI 提示 / 自动'};
   const hasMode = value => typeof value==='string' && Object.hasOwn(MODES,value);
   const DEFAULT_KEYS = {left:'ArrowLeft',right:'ArrowRight',rotate:'ArrowUp',ccw:'KeyZ',half:'KeyA',soft:'ArrowDown',hard:'Space',hold:'KeyC',undo:'KeyU',coach:'KeyG'};
-  const DEFAULTS = {startLevel:1,das:150,arr:35,softInterval:35,lockDelay:500,ghost:true,grid:true,sound:false,coach:false,audio:A.normalizeConfig(),theme:'paper',lastMode:'marathon',keys:{...DEFAULT_KEYS}};
+  const DEFAULT_AUDIO = {volume:100,map:{...A.DEFAULT_MAP,move:'silence',rotate:'silence',softdrop:'silence',lock:'drop'}};
+  const DEFAULTS = {startLevel:1,das:150,arr:35,softInterval:35,lockDelay:500,ghost:true,grid:true,sound:true,coach:false,audio:A.normalizeConfig(DEFAULT_AUDIO),theme:'paper',lastMode:'marathon',keys:{...DEFAULT_KEYS}};
   const RANGES = {startLevel:[1,20],das:[50,500],arr:[0,150],softInterval:[10,150],lockDelay:[100,1000]};
   const RESERVED = new Set(['Escape','KeyP','Enter','NumpadEnter','KeyF','KeyR','Tab','CapsLock','ContextMenu']);
   const isBindable = code => typeof code === 'string' && /^(Key[A-Z]|Digit[0-9]|Arrow(Left|Right|Up|Down)|Space|Shift(Left|Right)|Bracket(Left|Right)|Comma|Period|Slash|Semicolon|Quote|Backslash|Minus|Equal|Backquote)$/.test(code) && !RESERVED.has(code);
@@ -46,7 +47,7 @@
     }
     for(const name of ['ghost','grid','sound']) { if(typeof input[name]==='boolean')result[name]=input[name]; else if(strict)throw Error('设置格式不正确'); }
     if(typeof input.coach==='boolean')result.coach=input.coach;else if(input.coach!==undefined&&strict)throw Error('教练设置不正确');
-    result.audio=A.normalizeConfig(input.audio);
+    result.audio=A.normalizeConfig(input.audio ?? DEFAULT_AUDIO);
     if(['paper','night','mint'].includes(input.theme))result.theme=input.theme; else if(strict)throw Error('配色不正确');
     // Retired course mode must not prevent older backups from restoring.
     if(input.lastMode==='training')result.lastMode='marathon';
@@ -603,7 +604,7 @@
   $('#confirmCancel').onclick=()=>closeDialog($('#confirmDialog'));$('#confirmAccept').onclick=()=>{const action=confirmation;$('#confirmDialog').close();confirmation=null;action?.();};
   $$('[data-settings-tab]').forEach(btn=>btn.onclick=()=>activateSettingsTab(btn.dataset.settingsTab));
   $('#resetKeysBtn').onclick=()=>{draftKeys={...DEFAULT_KEYS};bindingAction=null;renderKeyBindings();};
-  $('#resetSoundsBtn').onclick=()=>{draftAudio=A.normalizeConfig();$('#settingsForm').elements.volume.value=draftAudio.volume;$('#volumeValue').textContent=draftAudio.volume+'%';renderSoundLibrary();};
+  $('#resetSoundsBtn').onclick=()=>{draftAudio=A.normalizeConfig(DEFAULT_AUDIO);$('#settingsForm').elements.volume.value=draftAudio.volume;$('#volumeValue').textContent=draftAudio.volume+'%';renderSoundLibrary();};
   $('#settingsForm').elements.volume.oninput=event=>{$('#volumeValue').textContent=event.target.value+'%';soundEngine.configure(readDraftAudio());};
   $('#settingsForm').elements.sound.onchange=event=>{soundEngine.configure(readDraftAudio());soundEngine.setEnabled?.(event.target.checked);if(event.target.checked)soundEngine.unlock();};
   $('#settingsForm').onsubmit=event=>{

@@ -1208,7 +1208,7 @@ test('temporary storage failure retries at a checkpoint rate during continued in
 });
 
 test('audio work follows saved sound preference and window activity without disabling normal pause sounds',()=>{
-  const muted=appHarness();
+  const muted=appHarness(stored(oldSettings()));
   assert.equal(muted.audioLifecycle.find(call=>call.method==='constructor').config.enabled,false,'audio starts dormant before saved preferences are loaded');
   assert.equal(muted.audioLifecycle.filter(call=>call.method==='enabled').at(-1).value,false);
   const h=appHarness(stored(oldSettings({lastMode:'zen',sound:true})));start(h);
@@ -1223,7 +1223,7 @@ test('audio work follows saved sound preference and window activity without disa
 });
 
 test('trying a sound while muted is temporary and closing settings restores the mute preference',()=>{
-  const h=appHarness();h.node('#settingsBtn').click();
+  const h=appHarness(stored(oldSettings()));h.node('#settingsBtn').click();
   const preview=h.node('#soundLibrary').children[0].children[2];
   h.audioLifecycle.length=0;preview.click();
   assert.ok(h.audioLifecycle.some(call=>call.method==='enabled'&&call.value===true));
