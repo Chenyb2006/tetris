@@ -1,0 +1,8 @@
+.DS_Store
+desktop/.build/
+Tetris.app/
+Tetris-Mac.zip
+preview*.jpg
+preview*.png
+dist/
+*.log

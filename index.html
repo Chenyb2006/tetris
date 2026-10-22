@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#181b23">
+  <meta name="description" content="Tetris：轻量、离线、随时续玩的像素俄罗斯方块。">
+  <title>Tetris</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="engine.js" defer></script>
+  <script src="audio.js" defer></script>
+  <script src="effects.js" defer></script>
+  <script src="coach.js" defer></script>
+  <script src="coach-worker-source.js" defer></script>
+  <script src="coach-client.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <main class="game-layout">
+      <aside class="left-rail">
+        <header class="topbar">
+          <a class="brand" href="#" aria-label="Tetris 首页"><span class="brand-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Tetris</span></a>
+          <span class="offline"><i></i> OFFLINE / LOCAL</span>
+        </header>
+        <div class="mode-section"><p class="eyebrow section-label">SELECT MODE</p>
+        <div id="modes" class="modes" aria-label="游戏模式"></div>
+        <div class="mode-note"><span id="modeIndex">01 / MARATHON</span><p id="modeDescription"></p></div></div>
+        <div class="personal-best pixel-panel"><span class="eyebrow">BEST</span><strong id="personalBest">—</strong><span id="bestLabel">最高得分</span></div>
+        <section id="coachPanel" class="coach-panel pixel-panel" aria-label="AI 教练">
+          <button id="coachBtn" class="coach-toggle" aria-pressed="false" aria-describedby="coachGesture"><span>AI 教练 <kbd id="coachKeyLabel">G</kbd></span><span id="coachSwitch">OFF</span></button>
+          <p id="coachGesture" class="coach-gesture">短按提示 · 长按自动</p>
+          <p id="coachReason" class="coach-reason" role="status">按 G 开启落点建议</p>
+          <p id="coachPath" class="coach-path" aria-label="建议操作" hidden></p>
+          <p id="coachMeta" class="coach-meta" hidden></p>
+        </section>
+        <footer class="footer"><p class="eyebrow section-label">CONTROLS</p><div class="key-guide"><span><kbd>←</kbd><kbd>→</kbd> 移动</span><span><kbd>↑</kbd> 旋转</span><span><kbd>空格</kbd> 落下</span><span><kbd>C</kbd> 暂存</span><span><kbd>Esc</kbd> 暂停</span></div><button id="undoBtn" class="outline-button" title="撤销上一次落子 · U"><span>撤销落子</span><kbd id="undoKeyLabel">U</kbd></button><button id="helpBtn" class="outline-button" title="操作指南 · H">操作指南 <span>H</span></button></footer>
+      </aside>
+
+      <section class="play-area" aria-label="游戏区">
+        <div class="board-frame">
+          <canvas id="board" width="200" height="400" tabindex="0" aria-label="俄罗斯方块棋盘，方向键移动，上键旋转，空格落下"></canvas>
+          <div id="gameOverlay" class="game-overlay">
+            <div class="overlay-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <p id="overlayEyebrow" class="eyebrow">PLAYER 01</p>
+            <h2 id="overlayTitle">READY?</h2>
+            <p id="overlayDescription">准备好了，随时开局。</p>
+            <button id="startBtn" class="primary-button">开始游戏 <kbd>↵</kbd></button>
+            <button id="freshBtn" class="overlay-secondary" hidden>放弃本局，重新开始</button>
+          </div>
+          <div id="gameFlash" class="game-flash" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <aside class="right-rail">
+        <div class="board-top"><span><i class="status-dot"></i> <span id="statusText">准备就绪</span></span><button id="pauseBtn" class="bare-button" title="暂停 / 继续 · Esc / P" aria-label="暂停或继续">Ⅱ</button></div>
+        <div class="score-block pixel-panel"><span class="eyebrow">SCORE / 得分</span><strong id="score">000000</strong></div>
+        <div class="metrics"><div><span id="timeLabel">TIME / 用时</span><strong id="time">00:00</strong></div><div><span>LINES / 行数</span><strong id="lines">0</strong></div><div><span>LEVEL / 等级</span><strong id="level">01</strong></div></div>
+        <div class="piece-trays"><div class="hold-tray pixel-panel"><div class="tray-title"><span class="eyebrow">HOLD / 暂存</span><kbd>C</kbd></div><canvas id="hold" width="120" height="42" aria-label="暂存方块"></canvas></div><div class="next-tray pixel-panel"><div class="tray-title"><span class="eyebrow">NEXT / 接下来</span><span id="nextCount">5</span></div><canvas id="next" width="100" height="262" aria-label="接下来的五个方块"></canvas></div></div>
+        <div class="right-bottom"><button id="restartBtn" class="outline-button"><span>重新开始</span><span>R</span></button>
+        <nav class="top-actions" aria-label="工具"><button id="recordsBtn" class="text-button" title="记录 · L">记录</button><button id="settingsBtn" class="text-button" title="设置 · S / ⌘,">设置</button><button id="fullscreenBtn" class="icon-button" title="全屏 · F" aria-label="切换全屏">⛶</button></nav>
+        <div class="board-bottom"><span id="saveStatus"><i></i> 自动保存</span><span id="pieceCounter">000 BLOCKS</span></div></div>
+      </aside>
+    </main>
+
+    <div class="touch-controls" aria-label="触屏操作">
+      <button data-action="hold" aria-label="暂存">HOLD</button><button data-action="left" aria-label="向左">←</button><button data-action="rotate" aria-label="旋转">↻</button><button data-action="right" aria-label="向右">→</button><button data-action="soft" aria-label="下移">↓</button><button data-action="hard" aria-label="直接落下">⤓</button>
+    </div>
+  </div>
+
+  <dialog id="settingsDialog" class="modal"><div class="dialog-heading"><div><span class="eyebrow">SETTINGS</span><h2>游戏设置</h2></div><button class="close-button" data-close aria-label="关闭设置">×</button></div><form id="settingsForm">
+    <div class="settings-tabs" role="tablist" aria-label="设置分类"><button type="button" class="tab active" data-settings-tab="play" role="tab" aria-selected="true">游戏</button><button type="button" class="tab" data-settings-tab="audio" role="tab" aria-selected="false">音效</button><button type="button" class="tab" data-settings-tab="keys" role="tab" aria-selected="false">按键</button><button type="button" class="tab" data-settings-tab="data" role="tab" aria-selected="false">存档</button></div>
+    <div data-settings-panel="play">
+      <label class="setting-row"><span>起始等级<small>新一局生效 · 1–20 级</small></span><input name="startLevel" type="number" min="1" max="20" value="1"></label>
+      <label class="setting-row"><span>横移启动延迟 <small>DAS · 按住后多久开始连续移动</small></span><span class="input-unit"><input name="das" type="number" min="50" max="500" step="10"> ms</span></label>
+      <label class="setting-row"><span>横移间隔<small>ARR · 0 为瞬移至边缘</small></span><span class="input-unit"><input name="arr" type="number" min="0" max="150" step="5"> ms</span></label>
+      <label class="setting-row"><span>软降间隔<small>按住下键的下落速度</small></span><span class="input-unit"><input name="softInterval" type="number" min="10" max="150" step="5"> ms</span></label>
+      <label class="setting-row"><span>锁定延迟<small>触地后仍可移动的时间 · 新一局生效</small></span><span class="input-unit"><input name="lockDelay" type="number" min="100" max="1000" step="50"> ms</span></label>
+      <label class="setting-row"><span>落点预览<small>显示方块最终落在哪里</small></span><input name="ghost" type="checkbox" role="switch"></label>
+      <label class="setting-row"><span>网格<small>棋盘中的轻量辅助线</small></span><input name="grid" type="checkbox" role="switch"></label>
+      <label class="setting-row"><span>AI 教练<small>短按切换提示 · 长按开启或关闭自动</small></span><input name="coach" type="checkbox" role="switch"></label>
+      <label class="setting-row"><span>配色</span><select name="theme"><option value="paper">街机</option><option value="night">深夜</option><option value="mint">掌机</option></select></label>
+    </div>
+    <div data-settings-panel="audio" hidden><label class="setting-row"><span>启用音效<small>每类操作均可单独选择音色或无声</small></span><input name="sound" type="checkbox" role="switch"></label><label class="setting-row"><span>总音量</span><span class="volume-control"><input name="volume" type="range" min="0" max="100" step="1"><output id="volumeValue">60%</output></span></label><p class="dialog-note">22 种音色选择，按「试听」立即播放。音效预先缓存，操作直接触发。</p><div id="soundLibrary" class="sound-library"></div><button type="button" id="resetSoundsBtn" class="outline-button">恢复默认音效</button></div>
+    <div data-settings-panel="keys" hidden><p class="dialog-note">选中按键后按 Enter，再按新键。R 后按 Enter 确认重开，Esc 取消；S 设置，L 记录，H 帮助，1–5 切换模式，⌘ / Ctrl + Enter 保存设置。若与自定义游戏键冲突，优先使用游戏键。</p><div id="keyBindings"></div><button type="button" id="resetKeysBtn" class="outline-button">恢复默认按键</button></div>
+    <div data-settings-panel="data" hidden><div class="data-card"><span class="eyebrow">ALWAYS HERE</span><h3>关掉，也不会丢掉这一局。</h3><p>每个模式分别保留一份进度。切换窗口会自动暂停；重新打开后可继续。历史记录和设置也保存在这台设备上。</p></div><p class="dialog-note">备份包含所有模式的存档、历史与设置。不同浏览器和桌面应用各自保存，可通过备份迁移。</p><div class="data-buttons"><button type="button" id="exportBtn" class="outline-button">↓ 导出备份</button><button type="button" id="importBtn" class="outline-button">↑ 导入备份</button></div><input id="importFile" type="file" accept="application/json,.json" hidden><p id="storageInfo" class="dialog-note"></p></div>
+    <div class="dialog-footer"><button type="submit" class="primary-button">保存设置 <span>↗</span></button></div>
+  </form></dialog>
+
+  <dialog id="recordsDialog" class="modal records-modal"><div class="dialog-heading"><div><span class="eyebrow">HIGH SCORES</span><h2>游戏记录</h2></div><button class="close-button" data-close aria-label="关闭记录">×</button></div><div id="recordStats" class="record-stats"></div><div id="recordFilters" class="record-filters"></div><div id="recordList" class="record-list"></div><p class="dialog-note">保留最近 200 局。撤销、教练提示或 AI 自动对局均计为练习，不计入标准最佳纪录。</p></dialog>
+
+  <dialog id="helpDialog" class="modal"><div class="dialog-heading"><div><span class="eyebrow">HOW TO PLAY</span><h2>操作指南</h2></div><button class="close-button" data-close aria-label="关闭指南">×</button></div><div class="help-content"><h3>经典规则，完整手感</h3><p>填满一整行即可消除。现代模式采用七袋随机、SRS 旋转与踢墙，支持暂存、五块预览、落点影子、软降和硬降。每块触地后的锁定延迟最多可重置 15 次。</p><h3>多消几行，多一点分</h3><p>普通消除 1 / 2 / 3 / 4 行得 100 / 300 / 500 / 800 × 等级分；支持 T-Spin、Mini、连击、背靠背与全消加分。软降每格 1 分，硬降每格 2 分。复古模式使用独立的经典计分与随机规则。</p><h3>五种节奏</h3><p>马拉松：无限挑战，每 10 行升级。40 行竞速：越快越好。两分钟：120 秒内冲高分。禅模式：无自动重力，自己决定下落时机。复古模式：独立随机、无暂存、无影子、单块预览、无踢墙；是经典启发规则，并非 NES 精确模拟。</p><h3>随时停，随时接着玩</h3><p>Esc / P 暂停，Enter 继续。切到其他窗口或打开设置会自动暂停；每个模式独立保存进度。关闭窗口前无需手动存档。R 重新开始时会先确认，并保留本局记录。</p><h3>可开关的 AI 教练</h3><p>默认短按 G 或点击左侧开关切换提示。白色虚线轮廓和 AI 标签标出推荐落点，左侧直接显示剩余操作；开关也可在设置中调整，快捷键可以更改。按住 G 约 0.7 秒开启 AI 自动，再次长按关闭；自动模式会连续操作，一局结束后自动再开。暂停、切窗、打开菜单或手动移动会停止自动；关闭游戏后不会自动恢复。自动对局会保留练习标记。教练在本机离线计算，只使用可见预览与暂存；每块方块只计算一次，移动、旋转和下落时目标保持固定；执行建议的暂存后沿用原目标，手动改换其他方块、落子或撤销后再计算。建议是有限搜索下的判断，不保证全局最优；高速下落时请及时操作。显示过建议后本局计为「教练练习」，关闭开关也会保留标记，存档与历史照常保存。</p><div id="helpKeys" class="help-keys"></div></div></dialog>
+
+
+  <dialog id="confirmDialog" class="modal small-modal"><div class="dialog-heading"><h2 id="confirmTitle">重新开始？</h2><button class="close-button" data-close aria-label="取消">×</button></div><p id="confirmDescription" class="dialog-note"></p><p class="dialog-note">Enter 确认 · Esc 取消</p><div class="confirm-actions"><button id="confirmCancel" class="outline-button">取消</button><button id="confirmAccept" class="primary-button" autofocus>重新开始</button></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>

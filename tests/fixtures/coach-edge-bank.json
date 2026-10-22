@@ -1,0 +1,2135 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "seed-1-turn-3",
+      "origin": {
+        "seed": 1,
+        "turn": 3,
+        "budgetMs": 85,
+        "beamWidth": 5
+      },
+      "description": "Low, hole-free terrain produced by following the previous coach; a legal safe placement can retain or grow the edge bank.",
+      "view": {
+        "mode": "marathon",
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            "Z",
+            "Z",
+            null,
+            null,
+            "T",
+            null,
+            null
+          ],
+          [
+            "I",
+            "I",
+            "I",
+            "I",
+            "Z",
+            "Z",
+            "T",
+            "T",
+            "T",
+            null
+          ]
+        ],
+        "active": {
+          "type": "L",
+          "x": 3,
+          "y": 3,
+          "rotation": 0
+        },
+        "queue": [
+          "J",
+          "O",
+          "Z",
+          "L",
+          "T"
+        ],
+        "holdType": "S",
+        "canHold": true,
+        "score": 114,
+        "lines": 0,
+        "level": 1,
+        "combo": -1,
+        "b2b": false,
+        "lastAction": null,
+        "lastKick": -1
+      },
+      "well": {
+        "x": 9,
+        "depth": 1,
+        "ready": 1,
+        "nearlyReady": 0,
+        "edge": true
+      },
+      "baseline": {
+        "lines": 1,
+        "piece": {
+          "type": "S",
+          "x": 7,
+          "y": 21,
+          "rotation": 1
+        }
+      },
+      "bankAlternative": {
+        "move": {
+          "piece": {
+            "type": "L",
+            "x": 4,
+            "y": 20,
+            "rotation": 1
+          },
+          "cells": [
+            {
+              "x": 6,
+              "y": 22
+            },
+            {
+              "x": 5,
+              "y": 20
+            },
+            {
+              "x": 5,
+              "y": 21
+            },
+            {
+              "x": 5,
+              "y": 22
+            }
+          ],
+          "origin": {
+            "type": "L",
+            "x": 3,
+            "y": 3,
+            "rotation": 0
+          },
+          "hold": false,
+          "path": [
+            "right",
+            "cw",
+            "hard"
+          ]
+        },
+        "clear": {
+          "lines": 0,
+          "spin": null,
+          "perfect": false,
+          "combo": -1,
+          "b2b": false,
+          "points": 0
+        },
+        "metrics": {
+          "heights": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            4,
+            2,
+            2,
+            1,
+            0
+          ],
+          "holes": 0,
+          "coveredDepth": 0,
+          "aggregateHeight": 16,
+          "maxHeight": 4,
+          "bumpiness": 7,
+          "wellDepth": 1,
+          "deepWells": 0,
+          "rowTransitions": 46,
+          "wells": [
+            {
+              "x": 9,
+              "depth": 1,
+              "ready": 1,
+              "nearlyReady": 0,
+              "edge": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed-1-turn-30",
+      "origin": {
+        "seed": 1,
+        "turn": 30,
+        "budgetMs": 85,
+        "beamWidth": 5
+      },
+      "description": "Low, hole-free terrain produced by following the previous coach; a legal safe placement can retain or grow the edge bank.",
+      "view": {
+        "mode": "marathon",
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "J",
+            null,
+            null,
+            null,
+            "Z",
+            null
+          ],
+          [
+            null,
+            "L",
+            "L",
+            "L",
+            "J",
+            "J",
+            "J",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          [
+            null,
+            "L",
+            "L",
+            "L",
+            "L",
+            "I",
+            "S",
+            "Z",
+            "Z",
+            "Z"
+          ]
+        ],
+        "active": {
+          "type": "I",
+          "x": 3,
+          "y": 3,
+          "rotation": 0
+        },
+        "queue": [
+          "J",
+          "T",
+          "S",
+          "J",
+          "O"
+        ],
+        "holdType": "O",
+        "canHold": true,
+        "score": 2722,
+        "lines": 10,
+        "level": 2,
+        "combo": -1,
+        "b2b": false,
+        "lastAction": null,
+        "lastKick": -1
+      },
+      "well": {
+        "x": 0,
+        "depth": 2,
+        "ready": 2,
+        "nearlyReady": 0,
+        "edge": true
+      },
+      "baseline": {
+        "lines": 2,
+        "piece": {
+          "type": "I",
+          "x": -1,
+          "y": 20,
+          "rotation": 3
+        }
+      },
+      "bankAlternative": {
+        "move": {
+          "piece": {
+            "type": "O",
+            "x": 4,
+            "y": 20,
+            "rotation": 0
+          },
+          "cells": [
+            {
+              "x": 5,
+              "y": 20
+            },
+            {
+              "x": 6,
+              "y": 20
+            },
+            {
+              "x": 5,
+              "y": 21
+            },
+            {
+              "x": 6,
+              "y": 21
+            }
+          ],
+          "origin": {
+            "type": "O",
+            "x": 3,
+            "y": 3,
+            "rotation": 0
+          },
+          "hold": true,
+          "path": [
+            "hold",
+            "right",
+            "hard"
+          ]
+        },
+        "clear": {
+          "lines": 0,
+          "spin": null,
+          "perfect": false,
+          "combo": -1,
+          "b2b": false,
+          "points": 0
+        },
+        "metrics": {
+          "heights": [
+            0,
+            2,
+            2,
+            2,
+            3,
+            4,
+            4,
+            2,
+            3,
+            2
+          ],
+          "holes": 0,
+          "coveredDepth": 0,
+          "aggregateHeight": 24,
+          "maxHeight": 4,
+          "bumpiness": 8,
+          "wellDepth": 2,
+          "deepWells": 0,
+          "rowTransitions": 46,
+          "wells": [
+            {
+              "x": 0,
+              "depth": 2,
+              "ready": 2,
+              "nearlyReady": 0,
+              "edge": true
+            },
+            {
+              "x": 7,
+              "depth": 1,
+              "ready": 0,
+              "nearlyReady": 0,
+              "edge": false
+            },
+            {
+              "x": 9,
+              "depth": 1,
+              "ready": 0,
+              "nearlyReady": 0,
+              "edge": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed-1-turn-107",
+      "origin": {
+        "seed": 1,
+        "turn": 107,
+        "budgetMs": 85,
+        "beamWidth": 5
+      },
+      "description": "Low, hole-free terrain produced by following the previous coach; a legal safe placement can retain or grow the edge bank.",
+      "view": {
+        "mode": "marathon",
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "T",
+            null,
+            null,
+            "S",
+            "S",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "T",
+            "T",
+            "S",
+            "S",
+            "T",
+            "T",
+            "T",
+            null,
+            null,
+            null
+          ],
+          [
+            "T",
+            "S",
+            "S",
+            "Z",
+            "Z",
+            "T",
+            "O",
+            "O",
+            "I",
+            null
+          ],
+          [
+            "S",
+            "S",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "O",
+            "O",
+            "I",
+            null
+          ]
+        ],
+        "active": {
+          "type": "L",
+          "x": 3,
+          "y": 3,
+          "rotation": 0
+        },
+        "queue": [
+          "J",
+          "Z",
+          "O",
+          "I",
+          "L"
+        ],
+        "holdType": "I",
+        "canHold": true,
+        "score": 18501,
+        "lines": 40,
+        "level": 5,
+        "combo": -1,
+        "b2b": false,
+        "lastAction": null,
+        "lastKick": -1
+      },
+      "well": {
+        "x": 9,
+        "depth": 2,
+        "ready": 2,
+        "nearlyReady": 0,
+        "edge": true
+      },
+      "baseline": {
+        "lines": 2,
+        "piece": {
+          "type": "I",
+          "x": 7,
+          "y": 20,
+          "rotation": 1
+        }
+      },
+      "bankAlternative": {
+        "move": {
+          "piece": {
+            "type": "L",
+            "x": 6,
+            "y": 19,
+            "rotation": 1
+          },
+          "cells": [
+            {
+              "x": 8,
+              "y": 21
+            },
+            {
+              "x": 7,
+              "y": 19
+            },
+            {
+              "x": 7,
+              "y": 20
+            },
+            {
+              "x": 7,
+              "y": 21
+            }
+          ],
+          "origin": {
+            "type": "L",
+            "x": 3,
+            "y": 3,
+            "rotation": 0
+          },
+          "hold": false,
+          "path": [
+            "right",
+            "right",
+            "right",
+            "cw",
+            "hard"
+          ]
+        },
+        "clear": {
+          "lines": 0,
+          "spin": null,
+          "perfect": false,
+          "combo": -1,
+          "b2b": false,
+          "points": 0
+        },
+        "metrics": {
+          "heights": [
+            4,
+            3,
+            3,
+            4,
+            4,
+            3,
+            3,
+            5,
+            3,
+            0
+          ],
+          "holes": 0,
+          "coveredDepth": 0,
+          "aggregateHeight": 32,
+          "maxHeight": 5,
+          "bumpiness": 10,
+          "wellDepth": 3,
+          "deepWells": 0,
+          "rowTransitions": 46,
+          "wells": [
+            {
+              "x": 9,
+              "depth": 3,
+              "ready": 3,
+              "nearlyReady": 0,
+              "edge": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed-7-turn-17",
+      "origin": {
+        "seed": 7,
+        "turn": 17,
+        "budgetMs": 85,
+        "beamWidth": 5
+      },
+      "description": "Low, hole-free terrain produced by following the previous coach; a legal safe placement can retain or grow the edge bank.",
+      "view": {
+        "mode": "marathon",
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "O",
+            "O"
+          ],
+          [
+            null,
+            "J",
+            "J",
+            "J",
+            "J",
+            null,
+            "S",
+            "S",
+            "O",
+            "O"
+          ],
+          [
+            null,
+            "J",
+            "J",
+            "J",
+            "J",
+            "S",
+            "S",
+            "L",
+            "L",
+            "L"
+          ],
+          [
+            null,
+            "S",
+            "T",
+            "T",
+            "T",
+            "Z",
+            "Z",
+            "L",
+            "O",
+            "O"
+          ]
+        ],
+        "active": {
+          "type": "Z",
+          "x": 3,
+          "y": 3,
+          "rotation": 0
+        },
+        "queue": [
+          "L",
+          "T",
+          "T",
+          "J",
+          "O"
+        ],
+        "holdType": "I",
+        "canHold": true,
+        "score": 1388,
+        "lines": 4,
+        "level": 1,
+        "combo": -1,
+        "b2b": true,
+        "lastAction": null,
+        "lastKick": -1
+      },
+      "well": {
+        "x": 0,
+        "depth": 3,
+        "ready": 2,
+        "nearlyReady": 1,
+        "edge": true
+      },
+      "baseline": {
+        "lines": 2,
+        "piece": {
+          "type": "I",
+          "x": -1,
+          "y": 20,
+          "rotation": 3
+        }
+      },
+      "bankAlternative": {
+        "move": {
+          "piece": {
+            "type": "Z",
+            "x": 4,
+            "y": 19,
+            "rotation": 1
+          },
+          "cells": [
+            {
+              "x": 6,
+              "y": 19
+            },
+            {
+              "x": 6,
+              "y": 20
+            },
+            {
+              "x": 5,
+              "y": 20
+            },
+            {
+              "x": 5,
+              "y": 21
+            }
+          ],
+          "origin": {
+            "type": "Z",
+            "x": 3,
+            "y": 3,
+            "rotation": 0
+          },
+          "hold": false,
+          "path": [
+            "right",
+            "cw",
+            "hard"
+          ]
+        },
+        "clear": {
+          "lines": 0,
+          "spin": null,
+          "perfect": false,
+          "combo": -1,
+          "b2b": false,
+          "points": 0
+        },
+        "metrics": {
+          "heights": [
+            0,
+            3,
+            3,
+            3,
+            3,
+            4,
+            5,
+            3,
+            4,
+            4
+          ],
+          "holes": 0,
+          "coveredDepth": 0,
+          "aggregateHeight": 32,
+          "maxHeight": 5,
+          "bumpiness": 8,
+          "wellDepth": 3,
+          "deepWells": 0,
+          "rowTransitions": 44,
+          "wells": [
+            {
+              "x": 0,
+              "depth": 3,
+              "ready": 3,
+              "nearlyReady": 0,
+              "edge": true
+            },
+            {
+              "x": 7,
+              "depth": 1,
+              "ready": 0,
+              "nearlyReady": 0,
+              "edge": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed-7-turn-48",
+      "origin": {
+        "seed": 7,
+        "turn": 48,
+        "budgetMs": 85,
+        "beamWidth": 5
+      },
+      "description": "Low, hole-free terrain produced by following the previous coach; a legal safe placement can retain or grow the edge bank.",
+      "view": {
+        "mode": "marathon",
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            "O",
+            "O",
+            null,
+            "S",
+            "S",
+            null,
+            "T",
+            null,
+            null
+          ],
+          [
+            null,
+            "O",
+            "O",
+            "S",
+            "S",
+            "T",
+            "T",
+            "T",
+            "T",
+            "L"
+          ],
+          [
+            null,
+            "J",
+            "J",
+            "J",
+            "T",
+            "T",
+            "T",
+            "L",
+            "L",
+            "L"
+          ],
+          [
+            null,
+            "S",
+            "S",
+            "J",
+            "I",
+            "I",
+            "I",
+            "I",
+            "O",
+            "O"
+          ]
+        ],
+        "active": {
+          "type": "I",
+          "x": 3,
+          "y": 3,
+          "rotation": 0
+        },
+        "queue": [
+          "Z",
+          "O",
+          "J",
+          "S",
+          "T"
+        ],
+        "holdType": "Z",
+        "canHold": true,
+        "score": 4944,
+        "lines": 16,
+        "level": 2,
+        "combo": -1,
+        "b2b": false,
+        "lastAction": null,
+        "lastKick": -1
+      },
+      "well": {
+        "x": 0,
+        "depth": 4,
+        "ready": 3,
+        "nearlyReady": 0,
+        "edge": true
+      },
+      "baseline": {
+        "lines": 3,
+        "piece": {
+          "type": "I",
+          "x": -1,
+          "y": 20,
+          "rotation": 3
+        }
+      },
+      "bankAlternative": {
+        "move": {
+          "piece": {
+            "type": "Z",
+            "x": 3,
+            "y": 18,
+            "rotation": 3
+          },
+          "cells": [
+            {
+              "x": 3,
+              "y": 20
+            },
+            {
+              "x": 3,
+              "y": 19
+            },
+            {
+              "x": 4,
+              "y": 19
+            },
+            {
+              "x": 4,
+              "y": 18
+            }
+          ],
+          "origin": {
+            "type": "Z",
+            "x": 3,
+            "y": 3,
+            "rotation": 0
+          },
+          "hold": true,
+          "path": [
+            "hold",
+            "ccw",
+            "hard"
+          ]
+        },
+        "clear": {
+          "lines": 0,
+          "spin": null,
+          "perfect": false,
+          "combo": -1,
+          "b2b": false,
+          "points": 0
+        },
+        "metrics": {
+          "heights": [
+            0,
+            4,
+            4,
+            5,
+            6,
+            4,
+            3,
+            4,
+            3,
+            3
+          ],
+          "holes": 0,
+          "coveredDepth": 0,
+          "aggregateHeight": 36,
+          "maxHeight": 6,
+          "bumpiness": 11,
+          "wellDepth": 4,
+          "deepWells": 0,
+          "rowTransitions": 48,
+          "wells": [
+            {
+              "x": 0,
+              "depth": 4,
+              "ready": 3,
+              "nearlyReady": 0,
+              "edge": true
+            },
+            {
+              "x": 6,
+              "depth": 1,
+              "ready": 0,
+              "nearlyReady": 0,
+              "edge": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
